@@ -6,7 +6,7 @@ Peças prontas para LinkedIn, Instagram, avatares e outras redes. O prisma e o l
 - Instagram: [@nexoraprism_](https://instagram.com/nexoraprism_)
 - E-mail: contato@nexoraprism.com.br
 
-A pasta `divulgacao/` é o material para publicar. Cada peça fotográfica sai em PNG e em JPG. Os arquivos da marca, com fundo transparente, saem só em PNG.
+A pasta `divulgacao/` é o material para publicar. As logos sem fundo, para o site, estão em `divulgacao/marca/sem-fundo/` e no pacote `divulgacao/logo-sem-fundo.zip`. Cada peça de rede sai em PNG e em JPG.
 
 ## Ver as peças
 

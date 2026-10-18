@@ -12,8 +12,44 @@ type Peca = {
 
 const ORDEM = ['marca', 'avatares', 'linkedin', 'instagram', 'outras-redes', 'web']
 
+const LOGO_SEM_FUNDO = [
+  {
+    arquivo: 'marca/sem-fundo/assinatura-horizontal-1200.png',
+    nome: 'Logo horizontal',
+    nota: 'Prisma e nome, sem fundo. É a peça para o cabeçalho do site.',
+  },
+  {
+    arquivo: 'marca/sem-fundo/assinatura-vertical-800.png',
+    nome: 'Logo vertical',
+    nota: 'A mesma marca empilhada, para espaços altos.',
+  },
+  {
+    arquivo: 'marca/sem-fundo/prisma-512.png',
+    nome: 'Só o prisma',
+    nota: 'Ícone sem texto, fundo transparente.',
+  },
+  {
+    arquivo: 'marca/sem-fundo/wordmark-800.png',
+    nome: 'Só o nome',
+    nota: 'Lettering NEXORA PRISM, sem o prisma.',
+  },
+]
+
 function srcOf(arquivo: string) {
   return `/kit/${arquivo}`
+}
+
+async function baixar(url: string, nome: string) {
+  const resposta = await fetch(url)
+  if (!resposta.ok) throw new Error('download')
+  const blob = await resposta.blob()
+  const link = document.createElement('a')
+  link.href = URL.createObjectURL(blob)
+  link.download = nome
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000)
 }
 
 export default function App() {
@@ -70,10 +106,40 @@ export default function App() {
           <li><span>E-mail</span><a href="mailto:contato@nexoraprism.com.br">contato@nexoraprism.com.br</a></li>
         </ul>
         <div className="actions">
-          <a className="button" href="/nexora-prism-kit.zip" download>Baixar a pasta completa</a>
-          <a className="button quiet" href="#avatares">Ir para os avatares</a>
+          <a className="button" href="/baixar/logo-sem-fundo.zip">Baixar logos sem fundo</a>
+          <button className="button quiet" type="button" onClick={() => baixar('/kit/logo-sem-fundo.zip', 'logo-sem-fundo.zip')}>
+            Se o link não baixar, clique aqui
+          </button>
         </div>
       </header>
+
+      <section className="section" id="sem-fundo">
+        <h2>Logo sem fundo</h2>
+        <p className="lede">
+          PNG com fundo transparente, para colocar no site por cima de qualquer cor.
+          O arquivo principal é a logo horizontal.
+        </p>
+        <div className="grid">
+          {LOGO_SEM_FUNDO.map((logo) => {
+            const nome = logo.arquivo.split('/').pop() ?? 'logo.png'
+            return (
+              <article className="card" key={logo.arquivo}>
+                <div className="preview checker">
+                  <img src={srcOf(logo.arquivo)} alt={logo.nome} />
+                </div>
+                <div className="meta">
+                  <h3>{logo.nome}</h3>
+                  <p>{logo.nota}</p>
+                  <div className="links">
+                    <a href={`/baixar/${nome}`}>Baixar PNG</a>
+                    <button type="button" onClick={() => baixar(srcOf(logo.arquivo), nome)}>Baixar de novo</button>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+      </section>
 
       {erro && <p className="status">{erro}</p>}
       {!pecas && !erro && <p className="status">Carregando as peças…</p>}

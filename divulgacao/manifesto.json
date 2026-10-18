@@ -1,11 +1,110 @@
 [
   {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/prisma.png",
+    "largura": 538,
+    "altura": 514,
+    "uso": "Prisma sem fundo, tamanho original. Serve em fundo claro ou escuro.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/prisma-512.png",
+    "largura": 512,
+    "altura": 489,
+    "uso": "Prisma sem fundo, 512 px. Ícone de cabeçalho e seções do site.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/prisma-256.png",
+    "largura": 256,
+    "altura": 245,
+    "uso": "Prisma sem fundo, 256 px.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/prisma-128.png",
+    "largura": 128,
+    "altura": 122,
+    "uso": "Prisma sem fundo, 128 px. Favicon e marca pequena.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/wordmark.png",
+    "largura": 647,
+    "altura": 213,
+    "uso": "Lettering NEXORA PRISM sem fundo.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/wordmark-800.png",
+    "largura": 800,
+    "altura": 263,
+    "uso": "Lettering sem fundo, 800 px de largura.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/assinatura-horizontal.png",
+    "largura": 2268,
+    "altura": 882,
+    "uso": "Logo completa na horizontal, sem fundo. A principal para o site.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/assinatura-horizontal-1200.png",
+    "largura": 1200,
+    "altura": 467,
+    "uso": "Logo horizontal sem fundo, 1200 px. Cabeçalho e rodapé.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/assinatura-horizontal-600.png",
+    "largura": 600,
+    "altura": 233,
+    "uso": "Logo horizontal sem fundo, 600 px.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/assinatura-vertical.png",
+    "largura": 933,
+    "altura": 1269,
+    "uso": "Logo completa na vertical, sem fundo.",
+    "formato": "png"
+  },
+  {
+    "grupo": "sem-fundo",
+    "titulo": "Logo sem fundo",
+    "arquivo": "marca/sem-fundo/assinatura-vertical-800.png",
+    "largura": 800,
+    "altura": 1088,
+    "uso": "Logo vertical sem fundo, 800 px de largura.",
+    "formato": "png"
+  },
+  {
     "grupo": "marca",
     "titulo": "Marca",
     "arquivo": "marca/prisma.png",
-    "largura": 549,
-    "altura": 531,
-    "uso": "Prisma isolado, fundo transparente.",
+    "largura": 538,
+    "altura": 514,
+    "uso": "Prisma isolado, fundo transparente, pronto para o site.",
     "formato": "png"
   },
   {
@@ -14,25 +113,25 @@
     "arquivo": "marca/wordmark-nexora-prism.png",
     "largura": 647,
     "altura": 213,
-    "uso": "Lettering original isolado, fundo transparente.",
+    "uso": "Lettering original isolado, fundo transparente, pronto para o site.",
     "formato": "png"
   },
   {
     "grupo": "marca",
     "titulo": "Marca",
     "arquivo": "marca/assinatura-horizontal.png",
-    "largura": 2252,
-    "altura": 900,
-    "uso": "Prisma e lettering lado a lado, fundo transparente.",
+    "largura": 2268,
+    "altura": 882,
+    "uso": "Prisma e lettering lado a lado, fundo transparente, pronto para o site.",
     "formato": "png"
   },
   {
     "grupo": "marca",
     "titulo": "Marca",
     "arquivo": "marca/assinatura-vertical.png",
-    "largura": 931,
-    "altura": 1273,
-    "uso": "Prisma e lettering empilhados, fundo transparente.",
+    "largura": 933,
+    "altura": 1269,
+    "uso": "Prisma e lettering empilhados, fundo transparente, pronto para o site.",
     "formato": "png"
   },
   {

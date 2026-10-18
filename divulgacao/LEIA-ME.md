@@ -1,5 +1,16 @@
 # Como usar o kit
 
+As logos sem fundo estão em `marca/sem-fundo/`. São PNG transparentes, para o site. O pacote só dessas logos é `logo-sem-fundo.zip`.
+
+| Arquivo | Uso |
+| --- | --- |
+| `marca/sem-fundo/assinatura-horizontal-1200.png` | Logo completa, horizontal, para o cabeçalho |
+| `marca/sem-fundo/assinatura-horizontal-600.png` | A mesma logo, menor |
+| `marca/sem-fundo/assinatura-vertical-800.png` | Logo completa, vertical |
+| `marca/sem-fundo/prisma-512.png` | Só o prisma |
+| `marca/sem-fundo/prisma-128.png` | Prisma pequeno, favicon |
+| `marca/sem-fundo/wordmark-800.png` | Só o nome NEXORA PRISM |
+
 Publique o arquivo do tamanho indicado. O PNG guarda a qualidade. O JPG é mais leve para subir na rede.
 
 Avatares: envie o quadrado. LinkedIn e Instagram cortam em círculo, e o prisma já fica dentro desse círculo.

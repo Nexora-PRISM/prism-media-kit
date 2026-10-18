@@ -194,7 +194,29 @@ button, a { font-family: inherit; }
   border-radius: 999px;
   padding: 5px 10px;
 }
-.links a:hover { border-color: rgba(130, 210, 255, 0.5); }
+.links a:hover, .links button:hover { border-color: rgba(130, 210, 255, 0.5); }
+
+.links button {
+  color: #d7e7f5;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.checker {
+  background-color: #f3f5f8;
+  background-image:
+    linear-gradient(45deg, #d5dbe3 25%, transparent 25%),
+    linear-gradient(-45deg, #d5dbe3 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #d5dbe3 75%),
+    linear-gradient(-45deg, transparent 75%, #d5dbe3 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+  cursor: default;
+}
 
 .status { color: #b7c3d4; padding: 40px 0; }
 
