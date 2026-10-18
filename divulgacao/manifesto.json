@@ -1,0 +1,254 @@
+[
+  {
+    "grupo": "marca",
+    "titulo": "Marca",
+    "arquivo": "marca/prisma.png",
+    "largura": 549,
+    "altura": 531,
+    "uso": "Prisma isolado, fundo transparente.",
+    "formato": "png"
+  },
+  {
+    "grupo": "marca",
+    "titulo": "Marca",
+    "arquivo": "marca/wordmark-nexora-prism.png",
+    "largura": 647,
+    "altura": 213,
+    "uso": "Lettering original isolado, fundo transparente.",
+    "formato": "png"
+  },
+  {
+    "grupo": "marca",
+    "titulo": "Marca",
+    "arquivo": "marca/assinatura-horizontal.png",
+    "largura": 2252,
+    "altura": 900,
+    "uso": "Prisma e lettering lado a lado, fundo transparente.",
+    "formato": "png"
+  },
+  {
+    "grupo": "marca",
+    "titulo": "Marca",
+    "arquivo": "marca/assinatura-vertical.png",
+    "largura": 931,
+    "altura": 1273,
+    "uso": "Prisma e lettering empilhados, fundo transparente.",
+    "formato": "png"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/avatar-prisma-1080.png",
+    "largura": 1080,
+    "altura": 1080,
+    "uso": "Arquivo principal para foto de perfil. O prisma já fica dentro do círculo.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/avatar-prisma-640.png",
+    "largura": 640,
+    "altura": 640,
+    "uso": "Perfil do WhatsApp e usos médios.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/avatar-prisma-400.png",
+    "largura": 400,
+    "altura": 400,
+    "uso": "Foto de perfil do LinkedIn.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/avatar-prisma-320.png",
+    "largura": 320,
+    "altura": 320,
+    "uso": "Foto de perfil do Instagram.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/avatar-prisma-circular-1080.png",
+    "largura": 1080,
+    "altura": 1080,
+    "uso": "Versão com o fundo já recortado em círculo, para peças e slides.",
+    "formato": "png"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/destaque-instagram-1080.png",
+    "largura": 1080,
+    "altura": 1080,
+    "uso": "Capa de destaque do Instagram. O anel fica visível no círculo.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/favicon-512.png",
+    "largura": 512,
+    "altura": 512,
+    "uso": "Ícone do site e atalho de app.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "avatares",
+    "titulo": "Avatares",
+    "arquivo": "avatares/apple-touch-180.png",
+    "largura": 180,
+    "altura": 180,
+    "uso": "Ícone para a tela de início do celular.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/capa-pessoal-1584x396.png",
+    "largura": 1584,
+    "altura": 396,
+    "uso": "Capa do perfil pessoal. A foto redonda cobre o canto inferior esquerdo, então a marca fica mais à direita.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/capa-pessoal-contato-1584x396.png",
+    "largura": 1584,
+    "altura": 396,
+    "uso": "Mesma capa, com o e-mail no lugar do @.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/capa-empresa-1128x191.png",
+    "largura": 1128,
+    "altura": 191,
+    "uso": "Capa da página da empresa. O logotipo da página cobre a esquerda.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/post-paisagem-1200x627.png",
+    "largura": 1200,
+    "altura": 627,
+    "uso": "Imagem de post horizontal.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/post-quadrado-1200x1200.png",
+    "largura": 1200,
+    "altura": 1200,
+    "uso": "Post quadrado.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "linkedin",
+    "titulo": "LinkedIn",
+    "arquivo": "linkedin/artigo-1920x1080.png",
+    "largura": 1920,
+    "altura": 1080,
+    "uso": "Capa de artigo e apresentações 16:9.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "instagram",
+    "titulo": "Instagram",
+    "arquivo": "instagram/feed-quadrado-1080x1080.png",
+    "largura": 1080,
+    "altura": 1080,
+    "uso": "Post do feed, quadrado, com site e @.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "instagram",
+    "titulo": "Instagram",
+    "arquivo": "instagram/feed-quadrado-contato-1080x1080.png",
+    "largura": 1080,
+    "altura": 1080,
+    "uso": "Post do feed com site, @ e e-mail.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "instagram",
+    "titulo": "Instagram",
+    "arquivo": "instagram/feed-retrato-1080x1350.png",
+    "largura": 1080,
+    "altura": 1350,
+    "uso": "Post vertical do feed, o formato que ocupa mais tela.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "instagram",
+    "titulo": "Instagram",
+    "arquivo": "instagram/story-1080x1920.png",
+    "largura": 1080,
+    "altura": 1920,
+    "uso": "Story e capa de Reel. O conteúdo fica fora da área da interface.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "instagram",
+    "titulo": "Instagram",
+    "arquivo": "instagram/story-contato-1080x1920.png",
+    "largura": 1080,
+    "altura": 1920,
+    "uso": "Story com site, @nexoraprism_ e e-mail.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "outras-redes",
+    "titulo": "Outras redes",
+    "arquivo": "outras-redes/x-capa-1500x500.png",
+    "largura": 1500,
+    "altura": 500,
+    "uso": "Capa do X. A foto de perfil cobre o canto inferior esquerdo.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "outras-redes",
+    "titulo": "Outras redes",
+    "arquivo": "outras-redes/facebook-capa-1640x624.png",
+    "largura": 1640,
+    "altura": 624,
+    "uso": "Capa do Facebook em dobro da medida clássica, para ficar nítida.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "outras-redes",
+    "titulo": "Outras redes",
+    "arquivo": "outras-redes/youtube-capa-2560x1440.png",
+    "largura": 2560,
+    "altura": 1440,
+    "uso": "Capa do YouTube. A marca fica na faixa central que aparece em TV e celular.",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "web",
+    "titulo": "Site e e-mail",
+    "arquivo": "web/compartilhamento-1200x630.png",
+    "largura": 1200,
+    "altura": 630,
+    "uso": "Imagem de compartilhamento do link nexoraprism.com.br (Open Graph).",
+    "formato": "png+jpg"
+  },
+  {
+    "grupo": "web",
+    "titulo": "Site e e-mail",
+    "arquivo": "web/assinatura-email-840x220.png",
+    "largura": 840,
+    "altura": 220,
+    "uso": "Faixa para assinatura de e-mail. Use como imagem.",
+    "formato": "png+jpg"
+  }
+]
