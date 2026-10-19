@@ -135,14 +135,25 @@ button, a { font-family: inherit; }
 
 .section { margin-top: 28px; }
 
-.section h2 {
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px 14px;
   margin: 0 0 14px;
+}
+
+.section h2 {
+  margin: 0;
   font-size: 13px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
   color: #9eb0c6;
 }
+
+.section-head .button { padding: 7px 12px; font-size: 13px; }
 
 .grid {
   display: grid;
@@ -157,6 +168,29 @@ button, a { font-family: inherit; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.frame { position: relative; }
+
+.baixar {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(7, 9, 15, 0.82);
+  color: #f3f7fc;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.baixar:hover { border-color: rgba(130, 210, 255, 0.55); }
+.baixar:disabled { opacity: 0.65; cursor: progress; }
+
+.frame > .baixar {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
 }
 
 .preview {
@@ -251,7 +285,13 @@ button, a { font-family: inherit; }
   background: rgba(8, 10, 16, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
-  padding: 8px 14px;
+  padding: 8px 8px 8px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: min(1100px, 100%);
 }
 
 .close {

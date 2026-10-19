@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { zipStore } from './zip'
 
 type Peca = {
   grupo: string
@@ -39,10 +40,11 @@ function srcOf(arquivo: string) {
   return `/kit/${arquivo}`
 }
 
-async function baixar(url: string, nome: string) {
-  const resposta = await fetch(url)
-  if (!resposta.ok) throw new Error('download')
-  const blob = await resposta.blob()
+function nomeDe(arquivo: string) {
+  return arquivo.split('/').pop() ?? 'peca.png'
+}
+
+function salvar(blob: Blob, nome: string) {
   const link = document.createElement('a')
   link.href = URL.createObjectURL(blob)
   link.download = nome
@@ -52,10 +54,52 @@ async function baixar(url: string, nome: string) {
   setTimeout(() => URL.revokeObjectURL(link.href), 1000)
 }
 
+async function baixar(url: string, nome: string) {
+  const resposta = await fetch(url)
+  if (!resposta.ok) throw new Error('download')
+  salvar(await resposta.blob(), nome)
+}
+
+async function baixarZip(arquivos: { url: string; nome: string }[], nome: string) {
+  const entradas = []
+  for (const arquivo of arquivos) {
+    const resposta = await fetch(arquivo.url)
+    if (!resposta.ok) throw new Error('download')
+    entradas.push({ nome: arquivo.nome, dados: new Uint8Array(await resposta.arrayBuffer()) })
+  }
+  const zip = zipStore(entradas)
+  salvar(new Blob([zip.buffer as ArrayBuffer], { type: 'application/zip' }), nome)
+}
+
+function arquivosDaPeca(peca: Peca) {
+  const nome = nomeDe(peca.arquivo)
+  const png = srcOf(peca.arquivo)
+  const lista = [{ url: png, nome }]
+  if (peca.formato.includes('jpg')) {
+    lista.push({ url: png.replace(/\.png$/, '.jpg'), nome: nome.replace(/\.png$/, '.jpg') })
+  }
+  return lista
+}
+
 export default function App() {
   const [pecas, setPecas] = useState<Peca[] | null>(null)
   const [erro, setErro] = useState('')
   const [aberta, setAberta] = useState<Peca | null>(null)
+  const [baixando, setBaixando] = useState<string | null>(null)
+  const [aviso, setAviso] = useState('')
+
+  async function executar(chave: string, acao: () => Promise<void>) {
+    if (baixando) return
+    setBaixando(chave)
+    setAviso('')
+    try {
+      await acao()
+    } catch {
+      setAviso('Não foi possível baixar. Tente de novo.')
+    } finally {
+      setBaixando(null)
+    }
+  }
 
   useEffect(() => {
     let ativo = true
@@ -114,26 +158,46 @@ export default function App() {
       </header>
 
       <section className="section" id="sem-fundo">
-        <h2>Logo sem fundo</h2>
+        <div className="section-head">
+          <h2>Logo sem fundo</h2>
+          <button
+            className="button quiet"
+            type="button"
+            disabled={baixando === 'secao:sem-fundo'}
+            onClick={() => executar('secao:sem-fundo', () => baixarZip(
+              LOGO_SEM_FUNDO.map((logo) => ({ url: srcOf(logo.arquivo), nome: nomeDe(logo.arquivo) })),
+              'sem-fundo.zip',
+            ))}
+          >
+            {baixando === 'secao:sem-fundo' ? 'Baixando…' : 'Baixar seção'}
+          </button>
+        </div>
         <p className="lede">
           PNG com fundo transparente, para colocar no site por cima de qualquer cor.
           O arquivo principal é a logo horizontal.
         </p>
         <div className="grid">
           {LOGO_SEM_FUNDO.map((logo) => {
-            const nome = logo.arquivo.split('/').pop() ?? 'logo.png'
+            const nome = nomeDe(logo.arquivo)
+            const chave = `arquivo:${logo.arquivo}`
             return (
               <article className="card" key={logo.arquivo}>
-                <div className="preview checker">
-                  <img src={srcOf(logo.arquivo)} alt={logo.nome} />
+                <div className="frame">
+                  <div className="preview checker">
+                    <img src={srcOf(logo.arquivo)} alt={logo.nome} />
+                  </div>
+                  <button
+                    className="baixar"
+                    type="button"
+                    disabled={baixando === chave}
+                    onClick={() => executar(chave, () => baixar(srcOf(logo.arquivo), nome))}
+                  >
+                    {baixando === chave ? 'Baixando…' : 'Baixar'}
+                  </button>
                 </div>
                 <div className="meta">
                   <h3>{logo.nome}</h3>
                   <p>{logo.nota}</p>
-                  <div className="links">
-                    <a href={`/baixar/${nome}`}>Baixar PNG</a>
-                    <button type="button" onClick={() => baixar(srcOf(logo.arquivo), nome)}>Baixar de novo</button>
-                  </div>
                 </div>
               </article>
             )
@@ -142,6 +206,7 @@ export default function App() {
       </section>
 
       {erro && <p className="status">{erro}</p>}
+      {aviso && <p className="status">{aviso}</p>}
       {!pecas && !erro && <p className="status">Carregando as peças…</p>}
       {pecas && pecas.length === 0 && <p className="status">Nenhuma peça encontrada.</p>}
 
@@ -155,24 +220,52 @@ export default function App() {
 
       {grupos.map((grupo) => (
         <section className="section" id={grupo.id} key={grupo.id}>
-          <h2>{grupo.titulo}</h2>
+          <div className="section-head">
+            <h2>{grupo.titulo}</h2>
+            <button
+              className="button quiet"
+              type="button"
+              disabled={baixando === `secao:${grupo.id}`}
+              onClick={() => executar(`secao:${grupo.id}`, () => baixarZip(
+                grupo.itens.flatMap(arquivosDaPeca),
+                `${grupo.id}.zip`,
+              ))}
+            >
+              {baixando === `secao:${grupo.id}` ? 'Baixando…' : 'Baixar seção'}
+            </button>
+          </div>
           <div className="grid">
             {grupo.itens.map((peca) => {
               const png = srcOf(peca.arquivo)
+              const nome = nomeDe(peca.arquivo)
               const jpg = peca.formato.includes('jpg') ? png.replace(/\.png$/, '.jpg') : null
+              const chave = `arquivo:${peca.arquivo}`
               return (
                 <article className="card" key={peca.arquivo}>
-                  <button className="preview" type="button" onClick={() => setAberta(peca)}>
-                    <img src={png} alt="" />
-                  </button>
+                  <div className="frame">
+                    <button className="preview" type="button" onClick={() => setAberta(peca)}>
+                      <img src={png} alt="" />
+                    </button>
+                    <button
+                      className="baixar"
+                      type="button"
+                      disabled={baixando === chave}
+                      onClick={() => executar(chave, () => baixar(png, nome))}
+                    >
+                      {baixando === chave ? 'Baixando…' : 'Baixar'}
+                    </button>
+                  </div>
                   <div className="meta">
-                    <h3>{peca.arquivo.split('/').pop()}</h3>
+                    <h3>{nome}</h3>
                     <div className="size">{peca.largura} × {peca.altura}</div>
                     <p>{peca.uso}</p>
-                    <div className="links">
-                      <a href={png} download>PNG</a>
-                      {jpg && <a href={jpg} download>JPG</a>}
-                    </div>
+                    {jpg && (
+                      <div className="links">
+                        <button type="button" onClick={() => executar(`jpg:${peca.arquivo}`, () => baixar(jpg, nome.replace(/\.png$/, '.jpg')))}>
+                          {baixando === `jpg:${peca.arquivo}` ? 'Baixando…' : 'JPG'}
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </article>
               )
@@ -187,7 +280,15 @@ export default function App() {
           <figure onClick={(evento) => evento.stopPropagation()}>
             <img src={srcOf(aberta.arquivo)} alt={aberta.uso} />
             <figcaption>
-              {aberta.arquivo.split('/').pop()} · {aberta.largura} × {aberta.altura}
+              <span>{nomeDe(aberta.arquivo)} · {aberta.largura} × {aberta.altura}</span>
+              <button
+                className="baixar"
+                type="button"
+                disabled={baixando === `arquivo:${aberta.arquivo}`}
+                onClick={() => executar(`arquivo:${aberta.arquivo}`, () => baixar(srcOf(aberta.arquivo), nomeDe(aberta.arquivo)))}
+              >
+                {baixando === `arquivo:${aberta.arquivo}` ? 'Baixando…' : 'Baixar'}
+              </button>
             </figcaption>
           </figure>
         </div>
